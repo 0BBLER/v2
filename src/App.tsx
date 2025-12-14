@@ -1,10 +1,12 @@
-function App() {
+import Title from "./components/Title/Title";
+import "./app.css";
 
+function App() {
   return (
     <>
-      <p>hi</p>
+      <Title />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

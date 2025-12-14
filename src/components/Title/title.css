@@ -1,0 +1,21 @@
+.baseTextStyle {
+  font-weight: bolder;
+  font-size: 20em;
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 40px;
+  line-height: 1;
+
+  color: rgb(198, 61, 47);
+}
+
+.centerTextStyle {
+  color: rgb(226, 94, 62);
+  background-color: rgb(255, 187, 92);
+  text-shadow: 0 0 10px rgb(226, 95, 62), 0 0 10px rgb(226, 95, 62),
+    0 0 10px rgb(226, 95, 62);
+}
+
+.rightTextStyle {
+  color: rgb(255, 155, 80);
+}
