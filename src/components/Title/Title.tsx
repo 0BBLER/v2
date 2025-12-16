@@ -1,13 +1,13 @@
 import "./title.css";
-import { animated, SpringValue, useSpring } from "@react-spring/web";
-import { useState, useEffect, useRef } from "react";
+import { animated, useSpring } from "@react-spring/web";
+import { useEffect } from "react";
 
 export default function Title() {
   //const ref = useRef<HTMLDivElement>(null);
 
   const startX = -800;
-  const centerWidth = 30;
-  const [liveX, setLiveX] = useState(startX);
+  const centerLeft = 200;
+  const centerWidth = 50;
 
   const [styles, api] = useSpring(() => ({
     opacity: 0,
@@ -18,7 +18,7 @@ export default function Title() {
 
   const [clipStyles, clipApi] = useSpring(() => ({
     clipX: 700,
-    config: { mass: 1, tension: 200, friction: 80 },
+    config: { mass: 5, tension: 150, friction: 15 },
   }));
 
   useEffect(() => {
@@ -32,8 +32,8 @@ export default function Title() {
   }, []);
 
   const clip1 = clipStyles.clipX.to((x) => {
-    const top = 600 - x;
-    const bottom = 200 - x;
+    const top = centerLeft + 300 - x;
+    const bottom = centerLeft - x;
 
     return `polygon(
     0 0,
@@ -44,8 +44,8 @@ export default function Title() {
   });
 
   const clip2 = clipStyles.clipX.to((x) => {
-    const top = Math.max(0, 600 - x);
-    const bottom = Math.max(0, 200 - x);
+    const top = Math.max(0, centerLeft + 300 - x);
+    const bottom = Math.max(0, centerLeft - x);
 
     return `polygon(
     ${top}px 0,
@@ -56,8 +56,8 @@ export default function Title() {
   });
 
   const clip3 = clipStyles.clipX.to((x) => {
-    const top = Math.max(0, 600 - x);
-    const bottom = Math.max(0, 200 - x);
+    const top = Math.max(0, centerLeft + 300 - x);
+    const bottom = Math.max(0, centerLeft - x);
 
     return `polygon(
     ${top + centerWidth}px 0,
@@ -75,7 +75,7 @@ export default function Title() {
       }}
     >
       <animated.span
-        className="baseTextStyle"
+        className="baseTextStyle leftTextStyle"
         style={{
           clipPath: clip1,
           WebkitClipPath: clip1,

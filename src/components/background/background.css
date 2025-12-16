@@ -1,0 +1,31 @@
+:root {
+  --col1: rgb(255, 187, 0);
+  --col2: rgb(255, 155, 80);
+}
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh + 60px);
+  top: 0;
+  left: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--col1),
+    var(--col1) 30px,
+    var(--col2) 30px,
+    var(--col2) 60px
+  );
+  background-size: 60px 60px;
+  animation: stripes 1s linear infinite;
+}
+
+@keyframes stripes {
+  from {
+    transform: translate(0, -60px);
+  }
+
+  to {
+    transform: translate(0, 0px);
+  }
+}
